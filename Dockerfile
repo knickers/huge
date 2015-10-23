@@ -19,7 +19,7 @@ WORKDIR /var/www/html
 ENV HUGE_VERSION v3.1
 
 RUN rm index.html \
-	&& git clone https://github.com/panique/huge.git . \
+	&& git clone https://github.com/panique/huge . \
 	&& git checkout tags/$HUGE_VERSION
 
 RUN curl -s https://getcomposer.org/installer | php \
