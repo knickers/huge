@@ -26,5 +26,3 @@ RUN curl -s https://getcomposer.org/installer | php \
 	&& mv composer.phar /usr/local/bin/composer \
 	&& composer install \
 	&& chmod 0777 -R public/avatars
-
-CMD ["apache2-forground"]
