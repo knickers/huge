@@ -1,0 +1,11 @@
+web:
+  build: .
+  links:
+    - db:mysql
+  ports:
+    - 8084:80
+
+db:
+  image: knickers/huge-mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: example_password
