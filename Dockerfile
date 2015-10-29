@@ -6,8 +6,7 @@ RUN set -x \
 		libpng12-dev libjpeg-dev php5-curl php5-gd openssl curl git \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-	&& docker-php-ext-install gd \
-	&& docker-php-ext-install mysqli \
+	&& docker-php-ext-install gd mysqli pdo pdo_mysql zip \
 	&& curl -s https://getcomposer.org/installer | php \
 	&& mv composer.phar /usr/local/bin/composer
 
