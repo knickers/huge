@@ -18,7 +18,8 @@ RUN rm index.html \
 	&& git clone https://github.com/panique/huge . \
 	&& git checkout tags/$HUGE_VERSION \
 	&& composer install \
-	&& chmod 0777 -R public/avatars
+	&& chmod 0777 -R public/avatars \
+	&& rm .scrutinizer.yml .travis.yml composer.json travis-ci-apache
 
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 COPY config.*.php application/config/
