@@ -20,8 +20,8 @@ RUN rm index.html \
 	&& apt-get update && apt-get install --no-install-recommends -y git \
 	&& git clone https://github.com/panique/huge . \
 	&& git checkout tags/$HUGE_VERSION \
-	&& apt-get purge --auto-remove -y git \
 	&& composer install \
 	&& chmod 0777 -R public/avatars \
+	&& apt-get purge --auto-remove -y git \
 	&& rm -rf /var/lib/apt/lists/* \
-		.htaccess .scrutinizer.yml .travis.yml composer.json travis-ci-apache
+		.scrutinizer.yml .travis.yml composer.json travis-ci-apache
