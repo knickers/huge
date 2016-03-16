@@ -16,7 +16,7 @@ WORKDIR /var/www/html
 
 ENV HUGE_VERSION v3.1
 
-RUN rm index.html \
+RUN rm -f index.html \
 	&& apt-get update && apt-get install --no-install-recommends -y git \
 	&& git clone https://github.com/panique/huge . \
 	&& git checkout tags/$HUGE_VERSION \

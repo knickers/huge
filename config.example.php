@@ -64,7 +64,7 @@ return array(
 	 * DB_CHARSET The charset, necessary for security reasons. Check Database.php class for more info.
 	 */
 	'DB_TYPE' => 'mysql',
-	'DB_HOST' => 'mysql',
+	'DB_HOST' => 'mysql', // The name of the linked container
 	'DB_NAME' => 'huge',
 	'DB_USER' => 'root',
 	'DB_PASS' => 'example_password',
