@@ -1,2 +1,2 @@
 # huge-mvc
-Dockerized PHP framework HUGE by panique
+Dockerized PHP MVC framework [HUGE](https://github.com/panique/huge) by panique
