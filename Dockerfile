@@ -17,12 +17,13 @@ WORKDIR /var/www/html
 ENV HUGE_VERSION v3.1
 
 RUN rm -f index.html \
-	&& apt-get update && apt-get install --no-install-recommends -y git \
-	&& git clone https://github.com/panique/huge . \
-	&& git checkout tags/$HUGE_VERSION \
+	&& curl -L https://github.com/panique/huge/archive/{$HUGE_VERSION}.tar.gz \
+		-o {$HUGE_VERSION}.tar.gz \
+	&& tar -zxf {$HUGE_VERSION}.tar.gz \
+	&& mv huge-${HUGE_VERSION#"v"}/* . \
+	&& rm -rf huge-${HUGE_VERSION#"v"} \
 	&& composer install \
 	&& chmod 0777 -R public/avatars \
-	&& apt-get purge --auto-remove -y git \
-	&& rm -rf /var/lib/apt/lists/* .git \
-		.scrutinizer.yml .travis.yml CHANGELOG.md composer.json README.md \
-		travis-ci-apache _one-click-installation application/_installation
+	&& rm -rf {$HUGE_VERSION}.tar.gz .scrutinizer.yml .travis.yml CHANGELOG.md \
+		composer.json README.md travis-ci-apache _one-click-installation \
+		application/_installation
