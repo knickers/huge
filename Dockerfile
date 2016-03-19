@@ -21,7 +21,7 @@ RUN rm -f index.html \
 	&& git clone https://github.com/panique/huge . \
 	&& git checkout tags/$HUGE_VERSION \
 	&& composer install \
-	&& chmod 0777 -R public/avatars \
+	&& chmod 0755 -R public/avatars \
 	&& apt-get purge --auto-remove -y git \
 	&& rm -rf /var/lib/apt/lists/* .git \
 		.scrutinizer.yml .travis.yml CHANGELOG.md composer.json README.md \
