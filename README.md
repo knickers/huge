@@ -4,7 +4,7 @@ Just a simple user authentication solution inside a super-simple framework skele
 
 HUGE's simple-as-possible architecture was inspired by several conference talks, slides and articles about huge applications that - surprisingly and intentionally - go back to the basics of programming, using procedural programming, static classes, extremely simple constructs, not-totally-DRY code etc. while keeping the code extremely readable ([StackOverflow](http://www.dev-metal.com/architecture-stackoverflow/), Wikipedia, SoundCloud).
 
-> [HUGE](https://github.com/panique/huge)
+> [github.com/panique/huge](https://github.com/panique/huge)
 
 ![HUGE logo](https://raw.githubusercontent.com/knickers/huge/master/huge-logo.png)
 
