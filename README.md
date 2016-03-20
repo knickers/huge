@@ -10,7 +10,36 @@ HUGE's simple-as-possible architecture was inspired by several conference talks,
 
 # How to use this image
 
+Copy the example configuration file from here: [github.com/knickers/huge](https://github.com/knickers/huge/blob/master/config.example.php) and make any changes you need.
+
 ```console
-$ docker run -d -e MYSQL_ROOT_PASSWORD="example password" --name huge-db knickers/huge-db
-$ docker run --link huge-db:mysql -p 8080:80 knickers/huge
+$ docker run -d -e MYSQL_ROOT_PASSWORD="example_password" --name huge-db knickers/huge-db
+$ docker run --link huge-db:mysql -p 8080:80 -v config.php:/var/www/html/application/config/config.development.php knickers/huge
+```
+
+`knickers/huge-db` is a MariaDB database pre-seeded with the users table needed by the HUGE framework, [here is the source](https://github.com/knickers/huge-db).
+
+## Use in development
+
+In order to mount your development files in the container without overwriting any core framework files, you must mount each folder individually.
+
+```console
+$ docker run -it --rm \
+	-v application/config:/var/www/html/application/config \
+	-v application/controller:/var/www/html/application/controller \
+	-v application/model:/var/www/html/application/model \
+	-v application/view:/var/www/html/application/view \
+	-v public/css:/var/www/html/public/css \
+	-v public/js:/var/www/html/public/js \
+	knickers/huge
+```
+
+## Use in production
+
+Compile your own image, the `COPY` command does a merge, so the core framework files are not overwritten.
+
+```dockerfile
+FROM knickers/huge
+
+COPY src:/var/www/html/
 ```
