@@ -10,7 +10,7 @@ HUGE's simple-as-possible architecture was inspired by several conference talks,
 
 # How to use this image
 
-Copy the example configuration file from here: [github.com/knickers/huge](https://github.com/knickers/huge/blob/master/config.example.php) and make any changes you need.
+Copy the example configuration file from [github.com/knickers/huge](https://github.com/knickers/huge/blob/master/config.example.php) and make any changes you need.
 
 ```console
 $ docker run -d -e MYSQL_ROOT_PASSWORD="example_password" --name huge-db knickers/huge-db
