@@ -17,7 +17,7 @@ $ docker run -d -e MYSQL_ROOT_PASSWORD="example_password" --name huge-db knicker
 $ docker run --link huge-db:mysql -p 8080:80 -v config.php:/var/www/html/application/config/config.development.php knickers/huge
 ```
 
-`knickers/huge-db` is a MariaDB database pre-seeded with the users table needed by the HUGE framework, [here is the source](https://github.com/knickers/huge-db).
+`knickers/huge-db` is a MariaDB database pre-seeded with the `users` table needed by the HUGE framework, [here is the source](https://github.com/knickers/huge-db).
 
 ## Use in development
 
