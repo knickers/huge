@@ -25,12 +25,12 @@ In order to mount your development files in the container without overwriting an
 
 ```console
 $ docker run -it --rm \
-	-v application/config:/var/www/html/application/config \
-	-v application/controller:/var/www/html/application/controller \
-	-v application/model:/var/www/html/application/model \
-	-v application/view:/var/www/html/application/view \
-	-v public/css:/var/www/html/public/css \
-	-v public/js:/var/www/html/public/js \
+	-v src/application/config:/var/www/html/application/config \
+	-v src/application/controller:/var/www/html/application/controller \
+	-v src/application/model:/var/www/html/application/model \
+	-v src/application/view:/var/www/html/application/view \
+	-v src/public/css:/var/www/html/public/css \
+	-v src/public/js:/var/www/html/public/js \
 	knickers/huge
 ```
 
