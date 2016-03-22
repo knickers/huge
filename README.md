@@ -21,10 +21,11 @@ $ docker run -it --link huge-db:mysql -p 8080:80 -v "$PWD/config.php:/var/www/ht
 
 ## Use in development
 
-In order to mount your development files in the container without overwriting any core framework files, you must mount each folder individually.
+In order to mount your development files in the container without overwriting any core framework files, each source code folder must be mounted individually.
 
 ```console
-$ docker run -it --rm \
+$ docker run -it --link huge-db:mysql -p 8080:80 \
+	-v "$PWD/config.php:/var/www/html/application/config/config.development.php" \
 	-v "$PWD/src/application/config:/var/www/html/application/config" \
 	-v "$PWD/src/application/controller:/var/www/html/application/controller" \
 	-v "$PWD/src/application/model:/var/www/html/application/model" \
