@@ -14,7 +14,7 @@ Copy the example configuration file from [github.com/knickers/huge](https://gith
 
 ```console
 $ docker run -d -e MYSQL_ROOT_PASSWORD="example_password" --name huge-db knickers/huge-db
-$ docker run --link huge-db:mysql -p 8080:80 -v config.php:/var/www/html/application/config/config.development.php knickers/huge
+$ docker run -it --link huge-db:mysql -p 8080:80 -v "$PWD/config.php:/var/www/html/application/config/config.development.php" knickers/huge
 ```
 
 `knickers/huge-db` is a MariaDB database pre-seeded with the `users` table needed by the HUGE framework, [here is the source](https://github.com/knickers/huge-db).
@@ -25,12 +25,12 @@ In order to mount your development files in the container without overwriting an
 
 ```console
 $ docker run -it --rm \
-	-v src/application/config:/var/www/html/application/config \
-	-v src/application/controller:/var/www/html/application/controller \
-	-v src/application/model:/var/www/html/application/model \
-	-v src/application/view:/var/www/html/application/view \
-	-v src/public/css:/var/www/html/public/css \
-	-v src/public/js:/var/www/html/public/js \
+	-v "$PWD/src/application/config:/var/www/html/application/config" \
+	-v "$PWD/src/application/controller:/var/www/html/application/controller" \
+	-v "$PWD/src/application/model:/var/www/html/application/model" \
+	-v "$PWD/src/application/view:/var/www/html/application/view" \
+	-v "$PWD/src/public/css:/var/www/html/public/css" \
+	-v "$PWD/src/public/js:/var/www/html/public/js" \
 	knickers/huge
 ```
 
