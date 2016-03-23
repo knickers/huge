@@ -37,7 +37,7 @@ $ docker run -it --link huge-db:mysql -p 8080:80 \
 
 ## Use in production
 
-Compile your own image, the `COPY` command does a merge, so the core framework files are not overwritten.
+Compile your own image. The `COPY` command does a merge, so the core framework files are not overwritten.
 
 ```dockerfile
 FROM knickers/huge
