@@ -31,6 +31,7 @@ $ docker run -it --link huge-db:mysql -p 8080:80 \
 	-v "$PWD/src/application/model:/var/www/html/application/model" \
 	-v "$PWD/src/application/view:/var/www/html/application/view" \
 	-v "$PWD/src/public/css:/var/www/html/public/css" \
+	-v "$PWD/src/public/img:/var/www/html/public/img" \
 	-v "$PWD/src/public/js:/var/www/html/public/js" \
 	knickers/huge
 ```
