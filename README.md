@@ -17,15 +17,14 @@ $ docker run -d -e MYSQL_ROOT_PASSWORD="example_password" --name huge-db knicker
 $ docker run -it --link huge-db:mysql -p 8080:80 -v "$PWD/config.php:/var/www/html/application/config/config.development.php" knickers/huge
 ```
 
-`knickers/huge-db` is a MariaDB database pre-seeded with the `users` table needed by the HUGE framework, [here is the source](https://github.com/knickers/huge-db).
+`knickers/huge-db` is a MariaDB database pre-seeded with the `users` table needed by the HUGE framework, [here is the docker image source](https://github.com/knickers/huge-db).
 
 ## Use in development
 
-In order to mount development files in the container without overwriting any core framework files, each source code folder must be mounted individually.
+In order to mount development files in the container without overwriting any core framework files, each source code folder must be mounted individually. Rename your config file `config.development.php` and move it into the `application/config` directory.
 
 ```console
 $ docker run -it --link huge-db:mysql -p 8080:80 \
-	-v "$PWD/config.php:/var/www/html/application/config/config.development.php" \
 	-v "$PWD/src/application/config:/var/www/html/application/config" \
 	-v "$PWD/src/application/controller:/var/www/html/application/controller" \
 	-v "$PWD/src/application/model:/var/www/html/application/model" \
@@ -38,7 +37,7 @@ $ docker run -it --link huge-db:mysql -p 8080:80 \
 
 ## Use in production
 
-Compile your own image. The `COPY` command does a merge, so the core framework files are not overwritten.
+Compile your own image. The `COPY` command does a merge, so the core framework files are not overwritten. Rename your config file `config.production.php`.
 
 ```dockerfile
 FROM knickers/huge
